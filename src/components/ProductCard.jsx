@@ -3,7 +3,7 @@ import { createOrderandPay } from "../api/Payment"
 import toast from "react-hot-toast"
 
 const ProductCard = ({ product }) => {
-    const AddToCart = () => {
+    const handleClick = (action) => {
         const productDetails = {
             id: Date.now(),
             Brand: product.Brand,
@@ -21,7 +21,12 @@ const ProductCard = ({ product }) => {
             cart.push(productDetails)
             localStorage.setItem("cartAtoZ", JSON.stringify(cart));
         }
-        toast.success("Added to cart successfully")
+
+        if (action === "cart") {
+            toast.success("Added to cart successfully")
+        } else {
+            createOrderandPay(parseInt(product.Price.split(',').join("").slice(1,)), productDetails.id, product.Brand + " " + product.Description)
+        }
     }
     return (
         <>
@@ -33,8 +38,8 @@ const ProductCard = ({ product }) => {
                     <p className="font-bold text-lg">{product.Price}</p>
                 </div>
                 <div className="flex gap-2 absolute bottom-2 left-2">
-                    <button className="px-5 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 hover:transition-all transition-all" onClick={AddToCart}>Add to Cart</button>
-                    <button className="px-5 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 hover:transition-all transition-all" onClick={() => { createOrderandPay(parseInt(product.Price.split(',').join("").slice(1,)), product.id, product.Brand + " " + product.Description) }}>Buy Now</button>
+                    <button className="px-5 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 hover:transition-all transition-all" onClick={() => { handleClick("cart") }}>Add to Cart</button>
+                    <button className="px-5 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 hover:transition-all transition-all" onClick={() => { handleClick("buy") }}>Buy Now</button>
                 </div>
             </div>
         </>
