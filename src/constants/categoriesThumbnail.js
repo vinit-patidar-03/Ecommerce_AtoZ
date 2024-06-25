@@ -1,23 +1,23 @@
 export const categoriesThumbnail = (category) => {
     if (category === "menswear") {
-        return "src/assets/menswear.webp";
+        return "images/menswear.webp";
     } else if (category === "womenswear") {
-        return "src/assets/womenswear.webp";
+        return "images/womenswear.webp";
     } else if (category === "kidswear") {
-        return "src/assets/kidswear.webp";
+        return "images/kidswear.webp";
     } else if (category === "books") {
-        return "src/assets/books.webp";
+        return "images/books.webp";
     } else if (category === "laptops") {
-        return "src/assets/laptops.webp";
+        return "images/laptops.webp";
     } else if (category === "mobiles") {
-        return "src/assets/mobiles.webp";
+        return "images/mobiles.webp";
     } else if (category === "watches") {
-        return "src/assets/watches.webp";
+        return "images/watches.webp";
     } else if (category === "mensfootwear") {
-        return "src/assets/mensfootwear.webp";
+        return "images/mensfootwear.webp";
     } else if (category === "womensfootwear") {
-        return "src/assets/womenfootwear.webp";
+        return "images/womenfootwear.webp";
     } else if (category === "kidsfootwear") {
-        return " src/assets/kidsfootwear.webp";
+        return " images/kidsfootwear.webp";
     }
 }
