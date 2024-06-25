@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { createOrderandPay } from "../api/Payment"
 import toast from "react-hot-toast"
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, setLoading }) => {
     const handleClick = (action) => {
         const productDetails = {
             id: Date.now(),
@@ -25,7 +25,7 @@ const ProductCard = ({ product }) => {
         if (action === "cart") {
             toast.success("Added to cart successfully")
         } else {
-            createOrderandPay(parseInt(product.Price.split(',').join("").slice(1,)), productDetails.id, product.Brand + " " + product.Description)
+            createOrderandPay(parseInt(product.Price.split(',').join("").slice(1,)), productDetails.id, product.Brand + " " + product.Description, setLoading)
         }
     }
     return (

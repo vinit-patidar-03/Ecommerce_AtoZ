@@ -1,10 +1,12 @@
 import axios from "axios";
 
-export const createOrderandPay = async (amount, productId, description) => {
+export const createOrderandPay = async (amount, productId, description, setLoading) => {
+    setLoading(true);
     const { data: { key } } = await axios.get('https://paymentintegration.vercel.app/getKey');
     const { data: { order } } = await axios.post('https://paymentintegration.vercel.app/payment/v1/createOrder', {
         amount
     });
+    setLoading(false);
 
     var options = {
         "key": key,

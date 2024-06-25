@@ -6,11 +6,13 @@ import Filteration from "./Filteration";
 import OtherProducts from "./OtherProducts";
 import Spinner from "./Spinner";
 import { FaSkullCrossbones } from "react-icons/fa6";
+import RedirectionIndicator from "./RedirectionIndicator";
 
 const Products = ({ category }) => {
     const [productsData, setProductsData] = useState([]);
     const [products, setProducts] = useState([]);
     const [isError, setIsError] = useState(false);
+    const [loading, setLoading] = useState(false);
     const totalPages = products && Math.ceil(products.length / 40);
     const [page, setPage] = useState(1);
     useEffect(() => {
@@ -25,7 +27,7 @@ const Products = ({ category }) => {
                 <div className="flex flex-wrap gap-2">
                     {products &&
                         products.slice(page * 40 - 40, page * 40).map((product, index) => {
-                            return <ProductCard key={index} product={product} />
+                            return <ProductCard key={index} product={product} setLoading={setLoading} />
                         })
                     }
                 </div>
@@ -40,6 +42,7 @@ const Products = ({ category }) => {
                     </div>
                 }
             </div>
+            {loading && <RedirectionIndicator />}
         </>
     )
 }
