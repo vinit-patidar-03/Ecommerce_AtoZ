@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
 import CartCard from "../components/CartCard";
 import { Link } from "react-router-dom";
+import RedirectionIndicator from "../components/RedirectionIndicator";
 
 const Cart = () => {
     const [cartItems, setCartItems] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         if (localStorage.getItem("cartAtoZ")) {
@@ -17,7 +19,7 @@ const Cart = () => {
                 {
                     cartItems &&
                     cartItems.map((item, index) => {
-                        return <CartCard product={item} key={index} setCartItems={setCartItems} />
+                        return <CartCard product={item} key={index} setLoading={setLoading} setCartItems={setCartItems} />
                     })
                 }
                 {cartItems.length === 0 &&
@@ -31,6 +33,7 @@ const Cart = () => {
                     </div>
                 }
             </div>
+            {loading && <RedirectionIndicator />}
         </>
     )
 }
