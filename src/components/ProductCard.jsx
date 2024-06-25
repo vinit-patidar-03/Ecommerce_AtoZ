@@ -34,7 +34,7 @@ const ProductCard = ({ product }) => {
                 </div>
                 <div className="flex gap-2 absolute bottom-2 left-2">
                     <button className="px-5 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 hover:transition-all transition-all" onClick={AddToCart}>Add to Cart</button>
-                    <button className="px-5 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 hover:transition-all transition-all" onClick={() => { createOrderandPay(parseInt(product.Price.split(',').join("").slice(1,)), product.id) }}>Buy Now</button>
+                    <button className="px-5 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 hover:transition-all transition-all" onClick={() => { createOrderandPay(parseInt(product.Price.split(',').join("").slice(1,)), product.id, product.Brand + " " + product.Description) }}>Buy Now</button>
                 </div>
             </div>
         </>

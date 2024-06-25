@@ -1,8 +1,8 @@
 import axios from "axios";
 
-export const createOrderandPay = async (amount, productId) => {
-    const { data: { key } } = await axios.get('https://paymentintegration.vercel.app//getKey');
-    const { data: { order } } = await axios.post('https://paymentintegration.vercel.app//payment/v1/createOrder', {
+export const createOrderandPay = async (amount, productId, description) => {
+    const { data: { key } } = await axios.get('https://paymentintegration.vercel.app/getKey');
+    const { data: { order } } = await axios.post('https://paymentintegration.vercel.app/payment/v1/createOrder', {
         amount
     });
 
@@ -11,7 +11,7 @@ export const createOrderandPay = async (amount, productId) => {
         "amount": order.amount,
         "currency": "INR",
         "name": "Vinit",
-        "description": "Test Transaction",
+        "description": description,
         "image": "https://avatars.githubusercontent.com/u/117593724?v=4",
         "order_id": order.id,
         "callback_url": `https://paymentintegration.vercel.app/payment/v1/paymentVerify?id=${productId}`,
