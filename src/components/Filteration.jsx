@@ -16,7 +16,7 @@ const Filteration = ({ productsData, setProducts, setPage }) => {
 
     const ApplyFilter = () => {
         setProducts(productsData.filter((product) => {
-            if (!filterPayload.Price) return product.Brand.toLowerCase() === filterPayload.Brand.toLowerCase();
+            if (!filterPayload.Price) return product.Brand.toLowerCase().includes(filterPayload.Brand.toLowerCase());
             else if (!filterPayload.Brand) return product.Price <= "₹" + filterPayload.Price;
             return product.Brand.toLowerCase() === filterPayload.Brand.toLowerCase() && product.Price <= "₹" + filterPayload.Price;
         }))
