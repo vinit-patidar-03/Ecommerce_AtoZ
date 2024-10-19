@@ -4,6 +4,7 @@ import Slider from "../components/Slider"
 import categories from "../constants/categories"
 import axios from "axios"
 import DemoCard from "../components/DemoCard"
+import Spinner from "../components/Spinner"
 
 const Home = () => {
     const [products, setProducts] = useState([]);
@@ -46,6 +47,7 @@ const Home = () => {
                     })
                 }
             </div>
+            {products.length == 0 && <Spinner />}
         </>
     )
 }
