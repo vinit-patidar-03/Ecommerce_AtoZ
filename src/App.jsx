@@ -15,6 +15,7 @@ import Cart from "./pages/Cart.jsx"
 import Success from "./pages/Success.jsx"
 import Orders from "./pages/Orders.jsx"
 import { Toaster } from "react-hot-toast"
+import Footer from "./components/Footer.jsx"
 
 function App() {
 
@@ -25,8 +26,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="menswear" element={<MensWear />} />
         <Route path="womenswear" element={<WomensWear />} />
-        <Route path="womensfootwear" element={<WomensFootwear />} />
-        <Route path="mensfootwear" element={<MensFootwear />} />
+        <Route path="femalefootwear" element={<WomensFootwear />} />
+        <Route path="malefootwear" element={<MensFootwear />} />
         <Route path="kidswear" element={<KidsWear />} />
         <Route path="kidsfootwear" element={<KidsFootwear />} />
         <Route path="books" element={<Books />} />
@@ -38,6 +39,7 @@ function App() {
         <Route path="/paymentSuccess" element={<Success />} />
       </Routes>
       <Toaster position="bottom-center" />
+      <Footer />
     </>
   )
 }

@@ -13,9 +13,9 @@ export const categoriesThumbnail = (category) => {
         return "images/mobiles.webp";
     } else if (category === "watches") {
         return "images/watches.webp";
-    } else if (category === "mensfootwear") {
+    } else if (category === "malefootwear") {
         return "images/mensfootwear.webp";
-    } else if (category === "womensfootwear") {
+    } else if (category === "femalefootwear") {
         return "images/womenfootwear.webp";
     } else if (category === "kidsfootwear") {
         return " images/kidsfootwear.webp";
