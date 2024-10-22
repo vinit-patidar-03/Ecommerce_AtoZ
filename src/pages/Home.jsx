@@ -30,7 +30,7 @@ const Home = () => {
             <div className="mt-[3.25rem]">
                 <Slider />
             </div>
-            <h3 className="font-bold ml-2">Categories</h3>
+            <h3 className="font-bold m-2">Categories</h3>
             <div className="flex fle-col p-2 gap-2 overflow-x-auto scrollbar-hide">
                 <div className="flex gap-2">
                     {

@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react"
 import { fetchProducts } from "../api/ProductAPI"
-import ProductCard from "./ProductCard";
-import Pagination from "./Pagination";
-import Filteration from "./Filteration";
-import OtherProducts from "./OtherProducts";
-import Spinner from "./Spinner";
+import ProductCard from "../components/ProductCard";
+import Pagination from "../components/Pagination";
+import Filteration from "../components/Filteration";
+import OtherProducts from "../components/OtherProducts";
+import Spinner from "../components/Spinner";
 import { FaSkullCrossbones } from "react-icons/fa6";
-import RedirectionIndicator from "./RedirectionIndicator";
+import RedirectionIndicator from "../components/RedirectionIndicator";
+import { useParams } from "react-router-dom";
 
-const Products = ({ category }) => {
+const Products = () => {
+    const { category } = useParams();
     const [productsData, setProductsData] = useState([]);
     const [products, setProducts] = useState([]);
     const [isError, setIsError] = useState(false);
