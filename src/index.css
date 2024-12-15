@@ -1,7 +1,23 @@
+@font-face {
+  font-family: "BalooBhaiJaan2-Bold";
+  src: url("/fonts/Baloo_Bhaijaan_2/BalooBhaijaan2-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Mulish-Regular";
+  src: url("/fonts/Mulish/Mulish-Regular.ttf") format("truetype");
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-.scrollbar-hide::-webkit-scrollbar{
-    display: none;
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: "BalooBhaiJaan2-Bold", sans-serif;
 }

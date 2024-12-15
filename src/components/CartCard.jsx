@@ -33,7 +33,7 @@ const CartCard = ({ product, setCartItems, setLoading }) => {
                 <img src={product.Image} alt="cart-product" className="h-[200px] sm:w-[30%] object-contain block m-auto" />
                 <div className="sm:w-[70%]">
                     <h2 className="font-bold">{product.Brand}</h2>
-                    <p className="font-semibold line-clamp-3">{product.Description}</p>
+                    <p className="line-clamp-3 text-xs text-gray-600 font-['Mulish-Regular']">{product.Description}</p>
                     <h3 className="font-bold text-lg">{product.Price}</h3>
                     <div className="flex gap-5">
                         <h3 className="font-semibold">Quantity</h3>

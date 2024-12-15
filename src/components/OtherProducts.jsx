@@ -10,7 +10,7 @@ const OtherProducts = ({ category }) => {
                     {
                         categories.map((elem, index) => {
                             if (elem === category) return null;
-                            return <Link to={"/" + elem} key={index} className=" text-blue-700 font-bold">{elem[0].toUpperCase() + elem.slice(1,)}</Link>
+                            return <Link to={"/products/" + elem} key={index} className=" text-blue-700 font-bold">{elem[0].toUpperCase() + elem.slice(1,)}</Link>
                         })
                     }
                 </div>

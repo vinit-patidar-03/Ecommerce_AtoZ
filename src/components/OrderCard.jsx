@@ -19,7 +19,7 @@ const OrderCard = ({ order, setOrders }) => {
                 <img src={order.Image} alt="order-img" className="h-[200px] block m-auto" />
                 <div>
                     <h3 className="font-bold">{order.Brand}</h3>
-                    <p className=" line-clamp-3">{order.Description}</p>
+                    <p className=" line-clamp-3 text-xs text-gray-600 font-['Mulish-Regular']">{order.Description}</p>
                     <p className="font-semibold">Quantity: {order.Quantity}</p>
                     <h3 className="font-bold text-lg">Amount Paid: {order.Price[0] + order.Quantity * parseInt(order.Price.split(',').join("").slice(1,))}</h3>
                     <div className=" text-green-500 flex gap-2 items-center">

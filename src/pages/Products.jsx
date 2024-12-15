@@ -4,10 +4,11 @@ import ProductCard from "../components/ProductCard";
 import Pagination from "../components/Pagination";
 import Filteration from "../components/Filteration";
 import OtherProducts from "../components/OtherProducts";
-import Spinner from "../components/Spinner";
 import { FaSkullCrossbones } from "react-icons/fa6";
 import RedirectionIndicator from "../components/RedirectionIndicator";
 import { useParams } from "react-router-dom";
+import NoItemsFound from "../components/NoItemsFound";
+import Spinner from "../components/Spinner";
 
 const Products = () => {
     const { category } = useParams();
@@ -15,6 +16,7 @@ const Products = () => {
     const [products, setProducts] = useState([]);
     const [isError, setIsError] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [isNoItem, setIsNoItem] = useState(false);
     const totalPages = products && Math.ceil(products.length / 40);
     const [page, setPage] = useState(1);
     useEffect(() => {
@@ -24,7 +26,7 @@ const Products = () => {
     return (
         <>
             <div className="p-2 mt-[3.25rem] ">
-                <Filteration productsData={productsData} setProducts={setProducts} setPage={setPage} />
+                <Filteration productsData={productsData} setProducts={setProducts} setIsNoItem={setIsNoItem} setPage={setPage} />
                 <OtherProducts category={category} />
                 <div className="flex flex-wrap gap-2">
                     {products &&
@@ -34,7 +36,6 @@ const Products = () => {
                     }
                 </div>
                 {products.length !== 0 && <Pagination page={page} setPage={setPage} totalPages={totalPages} />}
-                {products.length === 0 && !isError && <Spinner />}
                 {
                     isError &&
                     <div className="flex flex-col justify-center items-center mt-5 h-[50vh]">
@@ -43,6 +44,8 @@ const Products = () => {
                         <p className="text-lg text-gray-500 mt-2">Please check your internet connection or try refreshing your page</p>
                     </div>
                 }
+                {products.length === 0 && !isError && !isNoItem && <Spinner />}
+                {products.length === 0 && !isError && isNoItem && <NoItemsFound />}
             </div>
             {loading && <RedirectionIndicator />}
         </>

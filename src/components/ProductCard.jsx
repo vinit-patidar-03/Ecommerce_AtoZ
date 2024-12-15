@@ -34,7 +34,7 @@ const ProductCard = ({ product, setLoading }) => {
                 <img src={product.Image} className="w-[50%] h-[200px] object-contain block m-auto" alt="product-img" />
                 <div className="my-2">
                     <Link to={`https://www.flipkart.com/search?q=${product.Brand}`} className="font-bold hover:text-blue-600 transition-all hover:transition-all" target="_blank">{product.Brand}</Link>
-                    <Link to={`https://www.flipkart.com/search?q=${product.Description}`} className=" line-clamp-2 font-semibold hover:text-blue-500 transition-all hover:transition-all" target="_blank">{product.Description}</Link>
+                    <Link to={`https://www.flipkart.com/search?q=${product.Description}`} className=" line-clamp-2 hover:text-blue-500 transition-all hover:transition-all text-gray-600 text-xs font-['Mulish-Regular']" target="_blank">{product.Description}</Link>
                     <p className="font-bold text-lg">{product.Price}</p>
                 </div>
                 <div className="flex gap-2 absolute bottom-2 left-2">
