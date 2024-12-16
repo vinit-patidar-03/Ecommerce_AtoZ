@@ -35,8 +35,8 @@ const CartCard = ({ product, setCartItems, setLoading }) => {
                     <h2 className="font-bold">{product.Brand}</h2>
                     <p className="line-clamp-3 text-xs text-gray-600 font-['Mulish-Regular']">{product.Description}</p>
                     <h3 className="font-bold text-lg">{product.Price}</h3>
-                    <div className="flex gap-5">
-                        <h3 className="font-semibold">Quantity</h3>
+                    <div className="flex gap-5 items-center">
+                        <h3 className="font-semibold text-sm">Quantity</h3>
                         <div className="flex gap-2">
                             <button className=" w-5 bg-red-600 text-white font-bold cursor-pointer" onClick={() => { handleClick("-") }}>-</button>
                             <p>{product.Quantity}</p>
